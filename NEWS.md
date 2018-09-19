@@ -4,6 +4,8 @@
 
 *2018-18-2018*
 
+Increased points to win from 10 to 10,000 - variable was in gameManager.WeaponSelect (who would have guessed?)
+
 Collecting more variables from the game to write out. Most of the additions are defaults from the player class
  * (x,y,z) coordinates - z is not relevant for this two dimensional game values seem to range from -10 to 10 for both x and y.
  * canfire - boolean switches to False on spawn - can be used to measure death since health doesn't update to zero
@@ -17,6 +19,13 @@ Collecting more variables from the game to write out. Most of the additions are 
  Other items to explore:
  * projectiles class - I believe the update function has the data I need to grab all the projectiles on screen along with their x and y coordinates. Will probably have to stick to *one shot*kind of weapons (sniper, revolver, boom?). How would I represent a shot guns multiple bullets in a way that makes sense for a machine?
  * damageOnce class - has other hints for how to accomblish the results described above.
+ 
+TODO:
+* Grab all projectiles on screen and writeout data structure - limit of two projectiles per color?
+* Write out character aim direction.
+* use gamemanager.SpawnPlayer to setup a local TCP client to send data through.
+* use gamemanager.Update to send TCP client updates.
+
 
 ## v1.0
 
@@ -31,7 +40,7 @@ Added initial proof of concept for writing out data from the video game square b
 * MODIFIED gameManager.Update reads the character's health and color and writes it to a text file in a fixed location.
 
 TODO:
-* Investigate character x and y coordinates
-* How to grab projectiles and represent data structure
-* use SpawnPlayer to setup a local TCP client to send data through
-* use Update to character updates
+* ~Investigate character x and y coordinates.~
+* How to grab projectiles and represent data structure.
+* use SpawnPlayer to setup a local TCP client to send data through.
+* use Update to character updates.
