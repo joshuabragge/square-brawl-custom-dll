@@ -1,11 +1,12 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 
 // Token: 0x020001D7 RID: 471
 public partial class damageOnce : MonoBehaviour
 {
-	// Token: 0x06000AAB RID: 2731 RVA: 0x00056AF8 File Offset: 0x00054CF8
+	// Token: 0x06000AAB RID: 2731
 	private void Update()
 	{
 		if (this.useTime)
@@ -19,6 +20,14 @@ public partial class damageOnce : MonoBehaviour
 			{
 				if (collider2D.transform.root.gameObject.layer != base.transform.root.gameObject.layer && !this.targets.Contains(collider2D.transform))
 				{
+					try
+					{
+						string collision = base.transform.position.ToString();
+						File.AppendAllText("C:\\Users\\Jimmy\\Documents\\Projects\\Square Brawl Decompiled\\damageOnceUpdate.txt", collision + "\n ");
+					}
+					catch
+					{
+					}
 					if (collider2D.transform.root.tag == "projectile" && collider2D.transform.root.GetComponent<projectile>().team != base.transform.root.GetComponent<setColor>().team)
 					{
 						collider2D.transform.parent.GetComponent<projectile>().TakeDamage(50f, base.transform);
@@ -29,7 +38,7 @@ public partial class damageOnce : MonoBehaviour
 						if (this.useTime)
 						{
 							this.myMask = ~(1 << base.gameObject.layer);
-							string[] layerNames = new string[]
+							LayerMask mask = LayerMask.GetMask(new string[]
 							{
 								"team1",
 								"team2",
@@ -37,8 +46,7 @@ public partial class damageOnce : MonoBehaviour
 								"team4",
 								"map",
 								"mapMove"
-							};
-							LayerMask mask = LayerMask.GetMask(layerNames);
+							});
 							this.myMask &= mask;
 							if (Physics2D.Raycast(base.transform.root.position, Vector3.Normalize(collider2D.transform.position - base.transform.root.position), Vector3.Distance(base.transform.root.position, collider2D.transform.position), this.myMask).transform != collider2D.transform)
 							{
