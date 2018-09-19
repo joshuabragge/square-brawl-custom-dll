@@ -1,5 +1,23 @@
 ﻿<!-- -*- mode: markdown; fill-column: 8192 -*- -->
 
+## v1.1
+
+*2018-18-2018*
+
+Collecting more variables from the game to write out. Most of the additions are defaults from the player class
+ * (x,y,z) coordinates - z is not relevant for this two dimensional game values seem to range from -10 to 10 for both x and y.
+ * canfire - boolean switches to False on spawn - can be used to measure death since health doesn't update to zero
+ * aim.position - same coordinates as player. Found somewhere else in the code aim.roation - might be actual character direction?
+ * CD1 and CD2 - static cooldown parameters for the two weapons.
+ * canLookJump - not 100% certain but has to do with something on spawn during immunity - not really relevant to what I need anyway.
+ * canMove - boolean - self explanatory.
+ * fire1/fire2 - actual name of the weapons assigned to the character.
+ * cooldown1/cooldown2 - custom public class inserted into the player class to copy the value of the private cooldown timers. Player private cooldown timers reset upon firing weapons. Once the timer is greater than the static cooldown of the weapon, the weapon can be fired again.
+ 
+ Other items to explore:
+ * projectiles class - I believe the update function has the data I need to grab all the projectiles on screen along with their x and y coordinates. Will probably have to stick to *one shot*kind of weapons (sniper, revolver, boom?). How would I represent a shot guns multiple bullets in a way that makes sense for a machine?
+ * damageOnce class - has other hints for how to accomblish the results described above.
+
 ## v1.0
 
 *2018-09-10*

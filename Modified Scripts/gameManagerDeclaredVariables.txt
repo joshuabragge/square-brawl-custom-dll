@@ -1,0 +1,23 @@
+public GameObject playerOne;
+public string playerOneLife;
+public string playerOneColor;
+public string playerOnePosition;
+public string playerOneCanFire;
+public string playerOneAimPosition;
+public string playerOneCD1;
+public string playerOneCD2;
+public string playerOneCDAim;
+public string playerOneCanLookJump;
+public string playerOneCanMove;
+public string playerOneFire1;
+public string playerOneFire2;
+
+public string playerOneCoolDown1;
+public string playerOneCoolDown2;
+
+
+public GameObject playerTwo;
+public string playerTwoLife;
+public string playerTwoColor;
+public string playerTwoPosition;
+
