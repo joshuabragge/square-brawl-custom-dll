@@ -13,6 +13,7 @@ using UnityEngine.UI;
 // Token: 0x020001B1 RID: 433
 public partial class gameManager : Photon.MonoBehaviour
 {
+	
 	// Token: 0x060009AA RID: 2474
 	private void Update()
 	{
@@ -21,6 +22,16 @@ public partial class gameManager : Photon.MonoBehaviour
 			this.playerOne = GameObject.Find("PlayerOne");
 			this.playerOneLife = this.playerOne.GetComponent<Player>().life.ToString();
 			this.playerOneColor = ColorUtility.ToHtmlStringRGBA(this.playerOne.GetComponent<Player>().color);
+			this.playerOnePosition = this.playerOne.transform.position.ToString();
+			this.playerOneCanFire = this.playerOne.GetComponent<Player>().canFire.ToString();
+			this.playerOneAimPosition = this.playerOne.GetComponent<Player>().aim.position.ToString();
+			this.playerOneCD1 = this.playerOne.GetComponent<Player>().CD1.ToString();
+			this.playerOneCD2 = this.playerOne.GetComponent<Player>().CD2.ToString();
+			this.playerOneCDAim = this.playerOne.GetComponent<Player>().CDAim.ToString();
+			this.playerOneCanLookJump = this.playerOne.GetComponent<Player>().canLookJump.ToString();
+			this.playerOneCanMove = this.playerOne.GetComponent<Player>().canMove.ToString();
+			this.playerOneFire1 = this.playerOne.GetComponent<Player>().fire1;
+			this.playerOneFire2 = this.playerOne.GetComponent<Player>().fire2;
 		}
 		catch
 		{
@@ -30,14 +41,49 @@ public partial class gameManager : Photon.MonoBehaviour
 			this.playerTwo = GameObject.Find("PlayerTwo");
 			this.playerTwoLife = this.playerTwo.GetComponent<Player>().life.ToString();
 			this.playerTwoColor = ColorUtility.ToHtmlStringRGBA(this.playerTwo.GetComponent<Player>().color);
+			this.playerTwoPosition = this.playerTwo.transform.position.ToString();
 		}
 		catch
 		{
 		}
 		try
 		{
-			string playerOneRow = "P1," + this.playerOneColor + "," + this.playerOneLife;
-			string playerTwoRow = "P2," + this.playerTwoColor + "," + this.playerTwoLife;
+			string playerOneRow = string.Concat(new string[]
+			{
+				"P1,",
+				this.playerOneColor,
+				",",
+				this.playerOneLife,
+				",",
+				this.playerOnePosition,
+				",",
+				this.playerOneCanFire,
+				",",
+				this.playerOneAimPosition,
+				",",
+				this.playerOneCD1,
+				",",
+				this.playerOneCD2,
+				",",
+				this.playerOneCDAim,
+				",",
+				this.playerOneCanLookJump,
+				",",
+				this.playerOneCanMove,
+				",",
+				this.playerOneFire1,
+				",",
+				this.playerOneFire2
+			});
+			string playerTwoRow = string.Concat(new string[]
+			{
+				"P2,",
+				this.playerTwoColor,
+				",",
+				this.playerTwoLife,
+				",",
+				this.playerTwoPosition
+			});
 			string dateTime = DateTime.Now.ToString("yyyy-MM-ddTHH':'mm':'sszzz");
 			this.rowResults = string.Concat(new string[]
 			{
