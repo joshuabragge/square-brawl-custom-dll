@@ -32,6 +32,8 @@ public partial class gameManager : Photon.MonoBehaviour
 			this.playerOneCanMove = this.playerOne.GetComponent<Player>().canMove.ToString();
 			this.playerOneFire1 = this.playerOne.GetComponent<Player>().fire1;
 			this.playerOneFire2 = this.playerOne.GetComponent<Player>().fire2;
+			this.playerOneCoolDown1 = this.playerOne.GetComponent<Player>().cooldown1.ToString();
+			this.playerOneCoolDown2 = this.playerOne.GetComponent<Player>().cooldown2.ToString();
 		}
 		catch
 		{
@@ -73,7 +75,11 @@ public partial class gameManager : Photon.MonoBehaviour
 				",",
 				this.playerOneFire1,
 				",",
-				this.playerOneFire2
+				this.playerOneFire2,
+				",",
+				this.playerOneCoolDown1,
+				",",
+				this.playerOneCoolDown2
 			});
 			string playerTwoRow = string.Concat(new string[]
 			{
