@@ -1,0 +1,2 @@
+public float cooldown1 = 0f;
+public float cooldown2 = 0f;
