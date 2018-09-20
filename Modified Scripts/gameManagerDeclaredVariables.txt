@@ -11,6 +11,7 @@ public string playerOneCanLookJump;
 public string playerOneCanMove;
 public string playerOneFire1;
 public string playerOneFire2;
+public string playerOneAimRotation;
 
 public string playerOneCoolDown1;
 public string playerOneCoolDown2;

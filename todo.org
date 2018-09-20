@@ -1,4 +1,4 @@
-* TODO Figure out character aim
+* DONE <2018-09-19 Wed> Figure out character aim
   * playerOne.aim.roation
 * TODO Grab all projectile locations and colors on screen
 * DONE <2018-09-19 Wed> Character cooldown

@@ -17,7 +17,7 @@ public partial class gameManager : Photon.MonoBehaviour
 	// Token: 0x060009AA RID: 2474
 	private void Update()
 	{
-		try
+				try
 		{
 			this.playerOne = GameObject.Find("PlayerOne");
 			this.playerOneLife = this.playerOne.GetComponent<Player>().life.ToString();
@@ -25,6 +25,7 @@ public partial class gameManager : Photon.MonoBehaviour
 			this.playerOnePosition = this.playerOne.transform.position.ToString();
 			this.playerOneCanFire = this.playerOne.GetComponent<Player>().canFire.ToString();
 			this.playerOneAimPosition = this.playerOne.GetComponent<Player>().aim.position.ToString();
+			this.playerOneAimRotation = this.playerOne.GetComponent<Player>().aim.rotation.ToString();
 			this.playerOneCD1 = this.playerOne.GetComponent<Player>().CD1.ToString();
 			this.playerOneCD2 = this.playerOne.GetComponent<Player>().CD2.ToString();
 			this.playerOneCDAim = this.playerOne.GetComponent<Player>().CDAim.ToString();
@@ -79,7 +80,9 @@ public partial class gameManager : Photon.MonoBehaviour
 				",",
 				this.playerOneCoolDown1,
 				",",
-				this.playerOneCoolDown2
+				this.playerOneCoolDown2,
+				",",
+				this.playerOneAimRotation
 			});
 			string playerTwoRow = string.Concat(new string[]
 			{
