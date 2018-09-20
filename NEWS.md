@@ -2,6 +2,15 @@
 
 ## v1.1
 
+*2018-09-19
+
+Added character aim direction to features being output. Character aim is being stored as a quaternion - need to find a way to make it a bit more interpretable.
+
+TODO:
+* Grab all projectiles on screen and writeout data structure - limit of two projectiles per color?
+* use gamemanager.SpawnPlayer to setup a local TCP client to send data through.
+* use gamemanager.Update to send TCP client updates.
+* Add the features currently being output for player one but for player two as well.
 
 *2018-09-18*
 
@@ -23,7 +32,7 @@ Collecting more variables from the game to write out. Most of the additions are 
  
 TODO:
 * Grab all projectiles on screen and writeout data structure - limit of two projectiles per color?
-* Write out character aim direction.
+* ~Write out character aim direction.~
 * use gamemanager.SpawnPlayer to setup a local TCP client to send data through.
 * use gamemanager.Update to send TCP client updates.
 
