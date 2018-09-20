@@ -11,6 +11,7 @@ TODO:
 * use gamemanager.SpawnPlayer to setup a local TCP client to send data through.
 * use gamemanager.Update to send TCP client updates.
 * Add the features currently being output for player one but for player two as well.
+* Confirm if game has ability to transform quanternion variables into more simplistic data structure - will it have to be done in python?
 
 *2018-09-18*
 
