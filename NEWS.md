@@ -2,7 +2,8 @@
 
 ## v1.1
 
-*2018-18-2018*
+
+*2018-09-18*
 
 Increased points to win from 10 to 10,000 - variable was in gameManager.WeaponSelect (who would have guessed?)
 
