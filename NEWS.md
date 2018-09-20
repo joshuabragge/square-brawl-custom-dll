@@ -2,7 +2,7 @@
 
 ## v1.1
 
-*2018-09-19
+*2018-09-19*
 
 Added character aim direction to features being output. Character aim is being stored as a quaternion - need to find a way to make it a bit more interpretable.
 
