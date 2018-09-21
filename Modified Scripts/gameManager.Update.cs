@@ -17,7 +17,22 @@ public partial class gameManager : Photon.MonoBehaviour
 	// Token: 0x060009AA RID: 2474
 	private void Update()
 	{
-				try
+		try
+		{
+		GameObject[] allProjectiles;
+        allProjectiles = GameObject.FindGameObjectsWithTag("projectile");
+
+        foreach (GameObject proj in allProjectiles)
+			{
+            string projectilePosition = proj.transform.position.ToString();
+			string one = "projectile";
+			File.AppendAllText("C:\\Users\\Jimmy\\Documents\\Projects\\Square Brawl Decompiled\\proj.txt", one + "," + projectilePosition + "\n ");
+			}
+		}
+		catch
+		{
+		}
+		try
 		{
 			this.playerOne = GameObject.Find("PlayerOne");
 			this.playerOneLife = this.playerOne.GetComponent<Player>().life.ToString();
