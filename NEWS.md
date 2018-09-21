@@ -4,11 +4,14 @@
 
 *2018-09-20*
 
+* Projectile positions (x,y, z). Initial testing shows the projectiles positions continue to be queried even after a projectile hits the wall. The sniper should have only output ranges -6 to 6 when shooting left to right and 6 to -6 when shooting right to left - the sniper bullets were going up to the +-200 range.
 * Converted aim from quanternion to eurler angles.
 * P2's features match P1's
 
 TODO:
-* Grab all projectiles on screen and writeout data structure - limit of two projectiles per color?
+* ~Grab all projectiles on screen and writeout data structure - limit of two projectiles per color?~
+* Only pull/manage projectiles on screen.
+* Projectile data structure representation.
 * use gamemanager.SpawnPlayer to setup a local TCP client to send data through.
 * use gamemanager.Update to send TCP client updates.
 

@@ -19,14 +19,26 @@ public partial class gameManager : Photon.MonoBehaviour
 	{
 		try
 		{
-		GameObject[] allProjectiles;
-        allProjectiles = GameObject.FindGameObjectsWithTag("projectile");
-
-        foreach (GameObject proj in allProjectiles)
+			foreach (GameObject gameObject in GameObject.FindGameObjectsWithTag("projectile"))
 			{
-            string projectilePosition = proj.transform.position.ToString();
-			string one = "projectile";
-			File.AppendAllText("C:\\Users\\Jimmy\\Documents\\Projects\\Square Brawl Decompiled\\proj.txt", one + "," + projectilePosition + "\n ");
+				string projectilePosition = gameObject.transform.position.ToString();
+				string name = gameObject.name;
+				string one = "projectile";
+				string team = gameObject.transform.root.GetComponent<projectile>().team.ToString();
+				string color = ColorUtility.ToHtmlStringRGBA(gameObject.transform.root.GetComponent<projectile>().myColor);
+				File.AppendAllText("C:\\Users\\Jimmy\\Documents\\Projects\\Square Brawl Decompiled\\proj.txt", string.Concat(new string[]
+				{
+					one,
+					",",
+					projectilePosition,
+					",",
+					name,
+					",",
+					team,
+					",",
+					color,
+					"\n "
+				}));
 			}
 		}
 		catch
