@@ -21,4 +21,16 @@ public GameObject playerTwo;
 public string playerTwoLife;
 public string playerTwoColor;
 public string playerTwoPosition;
+public string playerTwoCanFire;
+public string playerTwoAimPosition;
+public string playerTwoCD1;
+public string playerTwoCD2;
+public string playerTwoCDAim;
+public string playerTwoCanLookJump;
+public string playerTwoCanMove;
+public string playerTwoFire1;
+public string playerTwoFire2;
+public string playerTwoAimRotation;
 
+public string playerTwoCoolDown1;
+public string playerTwoCoolDown2;

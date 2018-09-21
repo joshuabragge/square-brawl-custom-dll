@@ -25,7 +25,7 @@ public partial class gameManager : Photon.MonoBehaviour
 			this.playerOnePosition = this.playerOne.transform.position.ToString();
 			this.playerOneCanFire = this.playerOne.GetComponent<Player>().canFire.ToString();
 			this.playerOneAimPosition = this.playerOne.GetComponent<Player>().aim.position.ToString();
-			this.playerOneAimRotation = this.playerOne.GetComponent<Player>().aim.rotation.ToString();
+			this.playerOneAimRotation = this.playerOne.GetComponent<Player>().aim.rotation.eulerAngles.ToString();
 			this.playerOneCD1 = this.playerOne.GetComponent<Player>().CD1.ToString();
 			this.playerOneCD2 = this.playerOne.GetComponent<Player>().CD2.ToString();
 			this.playerOneCDAim = this.playerOne.GetComponent<Player>().CDAim.ToString();
@@ -45,6 +45,18 @@ public partial class gameManager : Photon.MonoBehaviour
 			this.playerTwoLife = this.playerTwo.GetComponent<Player>().life.ToString();
 			this.playerTwoColor = ColorUtility.ToHtmlStringRGBA(this.playerTwo.GetComponent<Player>().color);
 			this.playerTwoPosition = this.playerTwo.transform.position.ToString();
+			this.playerTwoCanFire = this.playerOne.GetComponent<Player>().canFire.ToString();
+			this.playerTwoAimPosition = this.playerOne.GetComponent<Player>().aim.position.ToString();
+			this.playerTwoAimRotation = this.playerOne.GetComponent<Player>().aim.rotation.eulerAngles.ToString();
+			this.playerTwoCD1 = this.playerOne.GetComponent<Player>().CD1.ToString();
+			this.playerTwoCD2 = this.playerOne.GetComponent<Player>().CD2.ToString();
+			this.playerTwoCDAim = this.playerOne.GetComponent<Player>().CDAim.ToString();
+			this.playerTwoCanLookJump = this.playerOne.GetComponent<Player>().canLookJump.ToString();
+			this.playerTwoCanMove = this.playerOne.GetComponent<Player>().canMove.ToString();
+			this.playerTwoFire1 = this.playerOne.GetComponent<Player>().fire1;
+			this.playerTwoFire2 = this.playerOne.GetComponent<Player>().fire2;
+			this.playerTwoCoolDown1 = this.playerOne.GetComponent<Player>().cooldown1.ToString();
+			this.playerTwoCoolDown2 = this.playerOne.GetComponent<Player>().cooldown2.ToString();
 		}
 		catch
 		{
@@ -91,7 +103,31 @@ public partial class gameManager : Photon.MonoBehaviour
 				",",
 				this.playerTwoLife,
 				",",
-				this.playerTwoPosition
+				this.playerTwoPosition,
+				",",
+				this.playerTwoCanFire,
+				",",
+				this.playerTwoAimPosition,
+				",",
+				this.playerTwoCD1,
+				",",
+				this.playerTwoCD2,
+				",",
+				this.playerTwoCDAim,
+				",",
+				this.playerTwoCanLookJump,
+				",",
+				this.playerTwoCanMove,
+				",",
+				this.playerTwoFire1,
+				",",
+				this.playerTwoFire2,
+				",",
+				this.playerTwoCoolDown1,
+				",",
+				this.playerTwoCoolDown2,
+				",",
+				this.playerTwoAimRotation
 			});
 			string dateTime = DateTime.Now.ToString("yyyy-MM-ddTHH':'mm':'sszzz");
 			this.rowResults = string.Concat(new string[]
