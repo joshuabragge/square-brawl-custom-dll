@@ -26,15 +26,18 @@ public partial class gameManager : Photon.MonoBehaviour
 				foreach (GameObject gameObject in GameObject.FindGameObjectsWithTag("projectile"))
 				{
 					string projectilePosition = gameObject.transform.position.ToString();
+					string id = gameObject.GetInstanceID().ToString();
 					string name = gameObject.name;
-					string one = "projectile";
+					string objects = "projectile";
 					string team = gameObject.transform.root.GetComponent<projectile>().team.ToString();
 					string color = ColorUtility.ToHtmlStringRGBA(gameObject.transform.root.GetComponent<projectile>().myColor);
 					File.AppendAllText("C:\\Users\\Jimmy\\Documents\\Projects\\Square Brawl Decompiled\\proj.txt", string.Concat(new string[]
 					{
 						dateTime,
 						",",
-						one,
+						objects,
+						",",
+						id,
 						",",
 						projectilePosition,
 						",",
