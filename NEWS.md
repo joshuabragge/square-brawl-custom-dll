@@ -2,6 +2,11 @@
 
 ## v1.1
 
+*2018-11-11*
+
+* Limited number of updates to three per second - probably want to add the limiter on the python side so we can fine tune the model.
+* Added unique ID for projectiles - this is a per shot ID. In other words, the revolver has six bullets and each bullet/ shot has the same distinct id througout the game's lifespan. This will allow us to set a max array of n for projectiles (where n corrosponds to the sum of the count of unique ids for the "approved weapons"). For example, if our approved weapons for training/battling are the revolver and sniper for two players the projectile array will need to be (6 revolver shots + 1 sniper shot) x 2 players = 13.
+
 *2018-09-20*
 
 * Projectile positions (x,y, z). Initial testing shows the projectiles positions continue to be queried even after a projectile hits the wall. The sniper should have only output ranges -6 to 6 when shooting left to right and 6 to -6 when shooting right to left - the sniper bullets were going up to the +-200 range.
