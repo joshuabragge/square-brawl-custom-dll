@@ -34,3 +34,5 @@ public string playerTwoAimRotation;
 
 public string playerTwoCoolDown1;
 public string playerTwoCoolDown2;
+
+public int updatePublisher = 0

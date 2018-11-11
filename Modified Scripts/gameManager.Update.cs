@@ -13,168 +13,179 @@ using UnityEngine.UI;
 // Token: 0x020001B1 RID: 433
 public partial class gameManager : Photon.MonoBehaviour
 {
-	
 	// Token: 0x060009AA RID: 2474
 	private void Update()
-	{
-		try
 		{
-			foreach (GameObject gameObject in GameObject.FindGameObjectsWithTag("projectile"))
+		this.updatePublisher += 1;
+		if (this.updatePublisher % 20 == 0)
+		// approximately 200 updates per second
+    	{
+			try
 			{
-				string projectilePosition = gameObject.transform.position.ToString();
-				string name = gameObject.name;
-				string one = "projectile";
-				string team = gameObject.transform.root.GetComponent<projectile>().team.ToString();
-				string color = ColorUtility.ToHtmlStringRGBA(gameObject.transform.root.GetComponent<projectile>().myColor);
-				File.AppendAllText("C:\\Users\\Jimmy\\Documents\\Projects\\Square Brawl Decompiled\\proj.txt", string.Concat(new string[]
+				string dateTime = DateTime.Now.ToString("hh.mm.ss.ffffff");
+				foreach (GameObject gameObject in GameObject.FindGameObjectsWithTag("projectile"))
 				{
-					one,
+					string projectilePosition = gameObject.transform.position.ToString();
+					string name = gameObject.name;
+					string one = "projectile";
+					string team = gameObject.transform.root.GetComponent<projectile>().team.ToString();
+					string color = ColorUtility.ToHtmlStringRGBA(gameObject.transform.root.GetComponent<projectile>().myColor);
+					File.AppendAllText("C:\\Users\\Jimmy\\Documents\\Projects\\Square Brawl Decompiled\\proj.txt", string.Concat(new string[]
+					{
+						dateTime,
+						",",
+						one,
+						",",
+						projectilePosition,
+						",",
+						name,
+						",",
+						team,
+						",",
+						color,
+						"\n "
+					}));
+				}
+			}
+			catch
+			{
+			}
+			try
+			{
+				this.playerOne = GameObject.Find("PlayerOne");
+				this.playerOneLife = this.playerOne.GetComponent<Player>().life.ToString();
+				this.playerOneColor = ColorUtility.ToHtmlStringRGBA(this.playerOne.GetComponent<Player>().color);
+				this.playerOnePosition = this.playerOne.transform.position.ToString();
+				this.playerOneCanFire = this.playerOne.GetComponent<Player>().canFire.ToString();
+				this.playerOneAimPosition = this.playerOne.GetComponent<Player>().aim.position.ToString();
+				this.playerOneAimRotation = this.playerOne.GetComponent<Player>().aim.rotation.eulerAngles.ToString();
+				this.playerOneCD1 = this.playerOne.GetComponent<Player>().CD1.ToString();
+				this.playerOneCD2 = this.playerOne.GetComponent<Player>().CD2.ToString();
+				this.playerOneCDAim = this.playerOne.GetComponent<Player>().CDAim.ToString();
+				this.playerOneCanLookJump = this.playerOne.GetComponent<Player>().canLookJump.ToString();
+				this.playerOneCanMove = this.playerOne.GetComponent<Player>().canMove.ToString();
+				this.playerOneFire1 = this.playerOne.GetComponent<Player>().fire1;
+				this.playerOneFire2 = this.playerOne.GetComponent<Player>().fire2;
+				this.playerOneCoolDown1 = this.playerOne.GetComponent<Player>().cooldown1.ToString();
+				this.playerOneCoolDown2 = this.playerOne.GetComponent<Player>().cooldown2.ToString();
+			}
+			catch
+			{
+			}
+			try
+			{
+				this.playerTwo = GameObject.Find("PlayerTwo");
+				this.playerTwoLife = this.playerTwo.GetComponent<Player>().life.ToString();
+				this.playerTwoColor = ColorUtility.ToHtmlStringRGBA(this.playerTwo.GetComponent<Player>().color);
+				this.playerTwoPosition = this.playerTwo.transform.position.ToString();
+				this.playerTwoCanFire = this.playerOne.GetComponent<Player>().canFire.ToString();
+				this.playerTwoAimPosition = this.playerOne.GetComponent<Player>().aim.position.ToString();
+				this.playerTwoAimRotation = this.playerOne.GetComponent<Player>().aim.rotation.eulerAngles.ToString();
+				this.playerTwoCD1 = this.playerOne.GetComponent<Player>().CD1.ToString();
+				this.playerTwoCD2 = this.playerOne.GetComponent<Player>().CD2.ToString();
+				this.playerTwoCDAim = this.playerOne.GetComponent<Player>().CDAim.ToString();
+				this.playerTwoCanLookJump = this.playerOne.GetComponent<Player>().canLookJump.ToString();
+				this.playerTwoCanMove = this.playerOne.GetComponent<Player>().canMove.ToString();
+				this.playerTwoFire1 = this.playerOne.GetComponent<Player>().fire1;
+				this.playerTwoFire2 = this.playerOne.GetComponent<Player>().fire2;
+				this.playerTwoCoolDown1 = this.playerOne.GetComponent<Player>().cooldown1.ToString();
+				this.playerTwoCoolDown2 = this.playerOne.GetComponent<Player>().cooldown2.ToString();
+			}
+			catch
+			{
+			}
+			try
+			{
+				string playerOneRow = string.Concat(new string[]
+				{
+					"P1,",
+					this.playerOneColor,
 					",",
-					projectilePosition,
+					this.playerOneLife,
 					",",
-					name,
+					this.playerOnePosition,
 					",",
-					team,
+					this.playerOneCanFire,
 					",",
-					color,
-					"\n "
-				}));
+					this.playerOneAimPosition,
+					",",
+					this.playerOneCD1,
+					",",
+					this.playerOneCD2,
+					",",
+					this.playerOneCDAim,
+					",",
+					this.playerOneCanLookJump,
+					",",
+					this.playerOneCanMove,
+					",",
+					this.playerOneFire1,
+					",",
+					this.playerOneFire2,
+					",",
+					this.playerOneCoolDown1,
+					",",
+					this.playerOneCoolDown2,
+					",",
+					this.playerOneAimRotation
+				});
+				string playerTwoRow = string.Concat(new string[]
+				{
+					"P2,",
+					this.playerTwoColor,
+					",",
+					this.playerTwoLife,
+					",",
+					this.playerTwoPosition,
+					",",
+					this.playerTwoCanFire,
+					",",
+					this.playerTwoAimPosition,
+					",",
+					this.playerTwoCD1,
+					",",
+					this.playerTwoCD2,
+					",",
+					this.playerTwoCDAim,
+					",",
+					this.playerTwoCanLookJump,
+					",",
+					this.playerTwoCanMove,
+					",",
+					this.playerTwoFire1,
+					",",
+					this.playerTwoFire2,
+					",",
+					this.playerTwoCoolDown1,
+					",",
+					this.playerTwoCoolDown2,
+					",",
+					this.playerTwoAimRotation
+				});
+				string dateTime = DateTime.Now.ToString("yyyy-MM-ddTHH':'mm':'sszzz");
+				this.rowResults = string.Concat(new string[]
+				{
+					dateTime,
+					",",
+					playerOneRow,
+					",",
+					playerTwoRow
+				});
+			}
+			catch
+			{
+			}
+			try
+			{
+				File.AppendAllText("C:\\Users\\Jimmy\\Documents\\Projects\\Square Brawl Decompiled\\update.txt", this.rowResults + "\n ");
+			}
+			catch
+			{
 			}
 		}
-		catch
+		if (this.updatePublisher % 240 == 0)
 		{
-		}
-		try
-		{
-			this.playerOne = GameObject.Find("PlayerOne");
-			this.playerOneLife = this.playerOne.GetComponent<Player>().life.ToString();
-			this.playerOneColor = ColorUtility.ToHtmlStringRGBA(this.playerOne.GetComponent<Player>().color);
-			this.playerOnePosition = this.playerOne.transform.position.ToString();
-			this.playerOneCanFire = this.playerOne.GetComponent<Player>().canFire.ToString();
-			this.playerOneAimPosition = this.playerOne.GetComponent<Player>().aim.position.ToString();
-			this.playerOneAimRotation = this.playerOne.GetComponent<Player>().aim.rotation.eulerAngles.ToString();
-			this.playerOneCD1 = this.playerOne.GetComponent<Player>().CD1.ToString();
-			this.playerOneCD2 = this.playerOne.GetComponent<Player>().CD2.ToString();
-			this.playerOneCDAim = this.playerOne.GetComponent<Player>().CDAim.ToString();
-			this.playerOneCanLookJump = this.playerOne.GetComponent<Player>().canLookJump.ToString();
-			this.playerOneCanMove = this.playerOne.GetComponent<Player>().canMove.ToString();
-			this.playerOneFire1 = this.playerOne.GetComponent<Player>().fire1;
-			this.playerOneFire2 = this.playerOne.GetComponent<Player>().fire2;
-			this.playerOneCoolDown1 = this.playerOne.GetComponent<Player>().cooldown1.ToString();
-			this.playerOneCoolDown2 = this.playerOne.GetComponent<Player>().cooldown2.ToString();
-		}
-		catch
-		{
-		}
-		try
-		{
-			this.playerTwo = GameObject.Find("PlayerTwo");
-			this.playerTwoLife = this.playerTwo.GetComponent<Player>().life.ToString();
-			this.playerTwoColor = ColorUtility.ToHtmlStringRGBA(this.playerTwo.GetComponent<Player>().color);
-			this.playerTwoPosition = this.playerTwo.transform.position.ToString();
-			this.playerTwoCanFire = this.playerOne.GetComponent<Player>().canFire.ToString();
-			this.playerTwoAimPosition = this.playerOne.GetComponent<Player>().aim.position.ToString();
-			this.playerTwoAimRotation = this.playerOne.GetComponent<Player>().aim.rotation.eulerAngles.ToString();
-			this.playerTwoCD1 = this.playerOne.GetComponent<Player>().CD1.ToString();
-			this.playerTwoCD2 = this.playerOne.GetComponent<Player>().CD2.ToString();
-			this.playerTwoCDAim = this.playerOne.GetComponent<Player>().CDAim.ToString();
-			this.playerTwoCanLookJump = this.playerOne.GetComponent<Player>().canLookJump.ToString();
-			this.playerTwoCanMove = this.playerOne.GetComponent<Player>().canMove.ToString();
-			this.playerTwoFire1 = this.playerOne.GetComponent<Player>().fire1;
-			this.playerTwoFire2 = this.playerOne.GetComponent<Player>().fire2;
-			this.playerTwoCoolDown1 = this.playerOne.GetComponent<Player>().cooldown1.ToString();
-			this.playerTwoCoolDown2 = this.playerOne.GetComponent<Player>().cooldown2.ToString();
-		}
-		catch
-		{
-		}
-		try
-		{
-			string playerOneRow = string.Concat(new string[]
-			{
-				"P1,",
-				this.playerOneColor,
-				",",
-				this.playerOneLife,
-				",",
-				this.playerOnePosition,
-				",",
-				this.playerOneCanFire,
-				",",
-				this.playerOneAimPosition,
-				",",
-				this.playerOneCD1,
-				",",
-				this.playerOneCD2,
-				",",
-				this.playerOneCDAim,
-				",",
-				this.playerOneCanLookJump,
-				",",
-				this.playerOneCanMove,
-				",",
-				this.playerOneFire1,
-				",",
-				this.playerOneFire2,
-				",",
-				this.playerOneCoolDown1,
-				",",
-				this.playerOneCoolDown2,
-				",",
-				this.playerOneAimRotation
-			});
-			string playerTwoRow = string.Concat(new string[]
-			{
-				"P2,",
-				this.playerTwoColor,
-				",",
-				this.playerTwoLife,
-				",",
-				this.playerTwoPosition,
-				",",
-				this.playerTwoCanFire,
-				",",
-				this.playerTwoAimPosition,
-				",",
-				this.playerTwoCD1,
-				",",
-				this.playerTwoCD2,
-				",",
-				this.playerTwoCDAim,
-				",",
-				this.playerTwoCanLookJump,
-				",",
-				this.playerTwoCanMove,
-				",",
-				this.playerTwoFire1,
-				",",
-				this.playerTwoFire2,
-				",",
-				this.playerTwoCoolDown1,
-				",",
-				this.playerTwoCoolDown2,
-				",",
-				this.playerTwoAimRotation
-			});
-			string dateTime = DateTime.Now.ToString("yyyy-MM-ddTHH':'mm':'sszzz");
-			this.rowResults = string.Concat(new string[]
-			{
-				dateTime,
-				",",
-				playerOneRow,
-				",",
-				playerTwoRow
-			});
-		}
-		catch
-		{
-		}
-		try
-		{
-			File.AppendAllText("C:\\Users\\Jimmy\\Documents\\Projects\\Square Brawl Decompiled\\update.txt", this.rowResults + "\n ");
-		}
-		catch
-		{
+			this.updatePublisher = 0;
 		}
 		this.gameManLifeTime += Time.deltaTime;
 		if (this.playing)
